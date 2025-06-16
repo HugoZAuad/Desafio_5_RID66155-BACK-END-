@@ -20,7 +20,12 @@ AppDataSource.initialize()
     console.error('Erro ao conectar com o banco de dados:', error);
   });
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://desafio-5-rid-66155-front-end.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+}));
 app.use(express.json());
 
 app.use('/livros', BooksRoutes);
