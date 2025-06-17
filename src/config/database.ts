@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export const AppDataSource = new DataSource({
   type: 'postgres',
   host: process.env.DB_HOST || 'localhost',
@@ -12,8 +14,12 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_NAME || 'livrosdb',
   synchronize: false,
   logging: false,
-  entities: [__dirname + '/../modules/books/infra/database/entities/*.ts'],
-  migrations: [__dirname + '/../shared/infra/typeorm/migrations/*.ts'],
+  entities: [
+    __dirname + (isProduction ? '/../modules/books/infra/database/entities/*.js' : '/../modules/books/infra/database/entities/*.ts')
+  ],
+  migrations: [
+    __dirname + (isProduction ? '/../shared/infra/typeorm/migrations/*.js' : '/../shared/infra/typeorm/migrations/*.ts')
+  ],
   subscribers: [],
   ssl: {
     rejectUnauthorized: false,
