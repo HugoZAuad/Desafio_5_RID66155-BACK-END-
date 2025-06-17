@@ -23,8 +23,8 @@ AppDataSource.initialize()
 
 const allowedOrigins = [
   'https://desafio-5-rid-66155-front-end.vercel.app',
-  'desafio-5-rid-66155-back-5baojimge-hugozauads-projects.vercel.app',
-  'https://desafio-5-rid-66155-back-end.vercel.app/',
+  'https://desafio-5-rid-66155-back-5baojimge-hugozauads-projects.vercel.app',
+  'https://desafio-5-rid-66155-back-end.vercel.app',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
 ];
