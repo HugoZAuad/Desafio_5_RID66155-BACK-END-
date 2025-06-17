@@ -21,8 +21,22 @@ AppDataSource.initialize()
     console.error(error);
   });
 
+const allowedOrigins = [
+  'https://desafio-5-rid-66155-front-end.vercel.app',
+  'desafio-5-rid-66155-back-5baojimge-hugozauads-projects.vercel.app',
+  'https://desafio-5-rid-66155-back-end.vercel.app/',
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+];
+
 app.use(cors({
-  origin: 'https://desafio-5-rid-66155-front-end.vercel.app',
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -30,9 +44,14 @@ app.use(cors({
   optionsSuccessStatus: 204,
 }));
 
-// Middleware para responder requisições OPTIONS (preflight) explicitamente
 app.options('*', cors({
-  origin: 'https://desafio-5-rid-66155-front-end.vercel.app',
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
