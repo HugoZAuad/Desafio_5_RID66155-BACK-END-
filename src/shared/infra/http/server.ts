@@ -48,6 +48,7 @@ app.get('/', (req: Request, res: Response) => {
 app.use(errors());
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error('Erro capturado no middleware de erro:', err);
   ErrorHandleMiddleware.handleError(err, req, res, next);
 });
 
