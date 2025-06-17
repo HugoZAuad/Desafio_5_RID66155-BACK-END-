@@ -14,7 +14,10 @@ const port = process.env.PORT || 3000;
 
 AppDataSource.initialize()
   .then(() => {
-    console.log('Conexão com o banco de dados estabelecida');
+    console.log('Conexão com banco de dados estabelecida');
+    app.listen(port, () => {
+      console.log(`Servidor rodando na porta ${port}`);
+    });
   })
   .catch((error) => {
     console.error('Erro ao conectar com o banco de dados:', error);
@@ -23,8 +26,6 @@ AppDataSource.initialize()
 
 const allowedOrigins = [
   'https://desafio-5-rid-66155-front-end.vercel.app',
-  'https://desafio-5-rid-66155-back-5baojimge-hugozauads-projects.vercel.app',
-  'https://desafio-5-rid-66155-back-end.vercel.app',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
 ];
@@ -71,11 +72,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error('Erro capturado no middleware de erro:', err);
   ErrorHandleMiddleware.handleError(err, req, res, next);
 });
-
-if (process.env.NODE_ENV !== 'test') {
-  app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
-  });
-}
 
 export default app;
