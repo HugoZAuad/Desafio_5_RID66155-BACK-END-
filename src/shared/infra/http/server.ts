@@ -18,6 +18,7 @@ AppDataSource.initialize()
   })
   .catch((error) => {
     console.error('Erro ao conectar com o banco de dados:', error);
+    console.error(error);
   });
 
 app.use(cors({
