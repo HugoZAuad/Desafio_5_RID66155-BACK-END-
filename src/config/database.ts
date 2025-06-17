@@ -15,4 +15,7 @@ export const AppDataSource = new DataSource({
   entities: [__dirname + '/../modules/books/infra/database/entities/*.ts'],
   migrations: [__dirname + '/../shared/infra/typeorm/migrations/*.ts'],
   subscribers: [],
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
