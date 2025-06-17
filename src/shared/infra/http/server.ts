@@ -25,7 +25,16 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
-  preflightContinue: false,
+  preflightContinue: true,
+  optionsSuccessStatus: 204,
+}));
+
+// Middleware para responder requisições OPTIONS (preflight) explicitamente
+app.options('*', cors({
+  origin: 'https://desafio-5-rid-66155-front-end.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
   optionsSuccessStatus: 204,
 }));
 app.use(express.json());
