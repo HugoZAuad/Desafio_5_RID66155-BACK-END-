@@ -23,7 +23,7 @@ AppDataSource.initialize()
 app.use(CorsMiddleware);
 app.use(express.json());
 
-app.use('/livros', BooksRoutes);
+app.use('/books', BooksRoutes);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('API de Livros funcionando!');
