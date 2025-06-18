@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
-const server_1 = __importDefault(require("@shared/infra/http/api/server"));
+const api_1 = __importDefault(require("@shared/infra/http/api"));
 const database_1 = require("@config/database");
 let server;
 let api;
@@ -12,7 +12,7 @@ describe('Books API Integration', () => {
     beforeAll(async () => {
         await database_1.AppDataSource.initialize();
         await new Promise((resolve) => {
-            server = server_1.default.listen(0, () => {
+            server = api_1.default.listen(0, () => {
                 const port = server.address().port;
                 api = (0, supertest_1.default)(`http://localhost:${port}`);
                 resolve();
