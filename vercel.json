@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["build/**"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/build/shared/infra/http/server.js"
+    }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "build"
+}
