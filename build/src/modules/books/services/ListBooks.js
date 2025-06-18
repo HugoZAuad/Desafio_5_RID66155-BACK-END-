@@ -15,6 +15,7 @@ class ListBooks {
             return books;
         }
         catch (error) {
+            console.error('Erro interno no ListBooks:', error); // 👈 isso aqui é o ouro
             throw new AppErrors_1.default('Erro ao listar livros.', 500);
         }
     }
