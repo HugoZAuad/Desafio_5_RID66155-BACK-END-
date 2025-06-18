@@ -1,4 +1,4 @@
-import { livros } from '../infra/database/entities/Book';
+import { Book } from '../infra/database/entities/Book';
 import { BookRepositories } from '../infra/database/repositories/BookRepositories';
 import AppError from '../../../shared/errors/AppErrors';
 
@@ -9,7 +9,7 @@ export class UpdateBook {
     this.bookRepository = bookRepository;
   }
 
-  async execute(id: number, data: Partial<livros>): Promise<{ livro: livros, mensagem: string } | null> {
+  async execute(id: number, data: Partial<Book>): Promise<{ livro: Book, mensagem: string } | null> {
     try {
       const livroAntigo = await this.bookRepository.findById(id);
       if (!livroAntigo) {
