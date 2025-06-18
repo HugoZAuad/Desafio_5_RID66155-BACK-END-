@@ -9,39 +9,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.livros = void 0;
+exports.Book = void 0;
 const typeorm_1 = require("typeorm");
-let livros = class livros {
+let Book = class Book {
 };
-exports.livros = livros;
+exports.Book = Book;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], livros.prototype, "id", void 0);
+], Book.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], livros.prototype, "titulo", void 0);
+], Book.prototype, "titulo", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
-], livros.prototype, "pages", void 0);
+], Book.prototype, "pages", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
-], livros.prototype, "ISBN", void 0);
+], Book.prototype, "ISBN", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], livros.prototype, "editora", void 0);
+], Book.prototype, "editora", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
-], livros.prototype, "created_at", void 0);
+], Book.prototype, "created_at", void 0);
 __decorate([
     (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
-], livros.prototype, "updated_at", void 0);
-exports.livros = livros = __decorate([
+], Book.prototype, "updated_at", void 0);
+exports.Book = Book = __decorate([
     (0, typeorm_1.Entity)('books')
-], livros);
+], Book);

@@ -4,7 +4,7 @@ exports.BookRepositories = void 0;
 const Book_1 = require("../entities/Book");
 class BookRepositories {
     constructor(dataSource) {
-        this.repository = dataSource.getRepository(Book_1.livros);
+        this.repository = dataSource.getRepository(Book_1.Book);
     }
     async create(bookData) {
         const book = this.repository.create(bookData);
