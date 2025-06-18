@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '@shared/infra/http/server';
+import app from '@shared/infra/http/api/server';
 import { AppDataSource } from '@config/database';
 
 let server: any;
