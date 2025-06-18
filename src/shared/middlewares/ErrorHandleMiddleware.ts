@@ -1,4 +1,4 @@
-import AppError from "@shared/errors/AppErrors";
+import AppError from "../errors/AppErrors";
 import { NextFunction, Request, Response } from "express";
 import { isCelebrateError } from "celebrate";
 
@@ -19,9 +19,10 @@ export default class ErrorHandleMiddleware {
     }
 
     if(error instanceof AppError) {
-      return res.status(error.statusCode).json({
+      const appError = error as AppError;
+      return res.status(appError.statusCode).json({
         type: 'error',
-        message: error.message,
+        message: appError.message,
       });
     }
 

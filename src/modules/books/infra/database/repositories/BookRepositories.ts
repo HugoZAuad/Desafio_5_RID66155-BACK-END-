@@ -1,5 +1,5 @@
 import { Repository, DataSource } from 'typeorm';
-import { livros } from '@modules/books/infra/database/entities/Book';
+import { livros } from '../entities/Book';
 import { IBookRepository } from '../../../models/repositories/IBookRepository';
 import { ICreateBook } from '../../../models/interfaces/ICreateBook';
 import { IUpdateBook } from '../../../models/interfaces/IUpdateBook';

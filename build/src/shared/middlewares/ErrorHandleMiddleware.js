@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const AppErrors_1 = __importDefault(require("@shared/errors/AppErrors"));
+const AppErrors_1 = __importDefault(require("../errors/AppErrors"));
 const celebrate_1 = require("celebrate");
 class ErrorHandleMiddleware {
     static handleError(error, _req, res, _next) {
@@ -16,9 +16,10 @@ class ErrorHandleMiddleware {
             });
         }
         if (error instanceof AppErrors_1.default) {
-            return res.status(error.statusCode).json({
+            const appError = error;
+            return res.status(appError.statusCode).json({
                 type: 'error',
-                message: error.message,
+                message: appError.message,
             });
         }
         return res.status(500).json({

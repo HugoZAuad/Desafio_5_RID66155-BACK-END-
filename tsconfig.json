@@ -8,13 +8,6 @@
     "module": "commonjs",
     "rootDir": "./",
     "baseUrl": ".",
-    "paths": {
-      "@config/*": ["src/config/*"],
-      "@services/*": ["src/modules/*"],
-      "@shared/*": ["src/shared/*"],
-      "@modules/*": ["src/modules/*"],
-      "@middlewares/*": ["src/shared/*"]
-    },
     "typeRoots": ["node_modules/@types", "src/@types"],
     "resolveJsonModule": true,
     "allowJs": true,
