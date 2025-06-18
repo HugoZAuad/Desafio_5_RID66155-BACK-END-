@@ -1,15 +1,15 @@
 import { Repository, DataSource } from 'typeorm';
-import { livros } from '../entities/Book';
+import { Book } from '../entities/Book';
 import { IBookRepository } from '../../../models/repositories/IBookRepository';
 import { ICreateBook } from '../../../models/interfaces/ICreateBook';
 import { IUpdateBook } from '../../../models/interfaces/IUpdateBook';
 import { IBook } from '../../../models/interfaces/IBook';
 
 export class BookRepositories implements IBookRepository {
-  private repository: Repository<livros>;
+  private repository: Repository<Book>;
 
   constructor(dataSource: DataSource) {
-    this.repository = dataSource.getRepository(livros);
+    this.repository = dataSource.getRepository(Book);
   }
 
   async create(bookData: ICreateBook): Promise<IBook> {
