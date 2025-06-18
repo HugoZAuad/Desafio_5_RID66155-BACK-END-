@@ -1,1 +1,1 @@
-{"rewrites":[{"source":"/(.*)","destination":"./build/src/shared/infra/http/api/index.js"}]}
+{"rewrites":[{"source":"/(.*)","destination":"/"}]}
