@@ -1,11 +1,11 @@
-import { DataSource } from 'typeorm';
-import dotenv from 'dotenv';
+import { DataSource } from 'typeorm'
+import dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config()
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production'
 
-const SUPABASE_JWT = process.env.SUPABASE_JWT || '2Fyf8BMfs7kgM7iBySQ5Lr4TbzHsmg/fXkCAOQKjrhdaifZOgCaEgahj45i84wGkJWLM3NHSNUWPfdtVlV7JLw==';
+const SUPABASE_JWT = process.env.SUPABASE_JWT || '2Fyf8BMfs7kgM7iBySQ5Lr4TbzHsmg/fXkCAOQKjrhdaifZOgCaEgahj45i84wGkJWLM3NHSNUWPfdtVlV7JLw=='
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -29,4 +29,4 @@ export const AppDataSource = new DataSource({
   extra: {
     options: `-c jwt.token=${SUPABASE_JWT}`
   }
-});
+})
