@@ -1,16 +1,18 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { errors } from 'celebrate';
-import { CorsMiddleware } from '@shared/middlewares/CorsMiddleware';
 import dotenv from 'dotenv';
 import 'express-async-errors';
 import { AppDataSource } from '../../../config/database';
 import BooksRoutes from '@modules/books/infra/http/routes/BooksRoutes';
 import ErrorHandleMiddleware from '@shared/middlewares/ErrorHandleMiddleware';
+import { CorsMiddleware } from '@shared/middlewares/CorsMiddleware';
 
 dotenv.config();
 
 const app: Application = express();
 const port = process.env.PORT || 3000;
+
+app.use(CorsMiddleware);
 
 AppDataSource.initialize()
   .then(() => {
@@ -23,15 +25,6 @@ AppDataSource.initialize()
     console.error('Erro ao conectar com o banco de dados:', error);
     console.error(error);
   });
-
-const allowedOrigins = [
-  'https://desafio-5-rid-66155-front-end.vercel.app',
-  'http://localhost:3000',
-  'http://127.0.0.1:3000',
-];
-
-// Removido uso do cors padrão, usando middleware customizado
-app.use(CorsMiddleware);
 
 app.use(express.json());
 
