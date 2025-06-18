@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "*.js",
+      "src": "server.js",
       "use": "@vercel/node",
       "config": {
         "includeFiles": ["build/**"]
@@ -15,6 +15,5 @@
       "dest": "/build/shared/infra/http/server.js"
     }
   ],
-  "buildCommand": "npm run build",
-  "outputDirectory": "build"
+  "buildCommand": "npm run build"
 }
