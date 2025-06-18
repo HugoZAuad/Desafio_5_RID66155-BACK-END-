@@ -1,25 +1,42 @@
-import express from 'express';
-import { CorsMiddleware } from '../../middlewares/CorsMiddleware';
-import livrosRoutes from '../../../modules/books/infra/http/routes/BooksRoutes';
+import express, { Application, Request, Response, NextFunction } from 'express';
+import { errors } from 'celebrate';
+import dotenv from 'dotenv';
+import 'express-async-errors';
+import { AppDataSource } from '@config/database';
+import BooksRoutes from '@modules/books/infra/http/routes/BooksRoutes';
+import ErrorHandleMiddleware from '@shared/middlewares/ErrorHandleMiddleware';
+import { CorsMiddleware } from '@shared/middlewares/CorsMiddleware';
 
-const app = express();
+dotenv.config();
 
-app.use(express.json());
+const app: Application = express();
 
-// Middleware de CORS antes das rotas
 app.use(CorsMiddleware);
 
-// Rotas principais
-app.use('/livros', livrosRoutes);
+AppDataSource.initialize()
+  .then(() => {
+    console.log('Conexão com banco de dados estabelecida');
+  })
+  .catch((error: any) => {
+    console.error('Erro ao conectar com o banco de dados:', error);
+  });
 
-// Rota de teste para ver se o servidor está rodando
-app.get('/', (req, res) => {
-  res.send('API de Livros rodando!');
+app.use(express.json());
+app.use('/livros', BooksRoutes);
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('API de Livros funcionando na Vercel! 📚');
 });
 
-// Middleware para tratar rotas não encontradas (404)
-app.use((req, res) => {
-  res.status(404).json({ error: 'Rota não encontrada' });
+app.use(errors());
+
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  console.error('Erro capturado no middleware de erro:', err);
+  ErrorHandleMiddleware.handleError(err, req, res, next);
 });
 
 export default app;
