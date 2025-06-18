@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm'
 import dotenv from 'dotenv'
+import { Book } from '../modules/books/infra/database/entities/Book' // 👈 importação direta da entidade
 
 dotenv.config()
 
@@ -16,11 +17,11 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_NAME || 'livrosdb',
   synchronize: false,
   logging: false,
-  entities: [
-    __dirname + (isProduction ? '/../modules/books/infra/database/entities/*.js' : '/../modules/books/infra/database/entities/*.ts')
-  ],
+  entities: [Book],
   migrations: [
-    __dirname + (isProduction ? '/../shared/infra/typeorm/migrations/*.js' : '/../shared/infra/typeorm/migrations/*.ts')
+    __dirname + (isProduction
+      ? '/../shared/infra/typeorm/migrations/*.js'
+      : '/../shared/infra/typeorm/migrations/*.ts')
   ],
   subscribers: [],
   ssl: {
