@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
 const allowedOrigins = [
-  'https://desafio-5-rid-66155-front-end.vercel.app',
+  'https://reliable-gumption-b4227c.netlify.app/',
   'http://localhost:3000',
   'http://localhost:5173',
   'http://127.0.0.1:3000',
