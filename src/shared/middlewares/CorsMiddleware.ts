@@ -8,6 +8,7 @@ const allowedOrigins = [
 
 export function CorsMiddleware(req: Request, res: Response, next: NextFunction): void {
   const origin = req.headers.origin as string;
+  console.log('CorsMiddleware origin:', origin);
   if (!origin || allowedOrigins.indexOf(origin) !== -1) {
     res.header('Access-Control-Allow-Origin', origin || '*');
     res.header('Access-Control-Allow-Credentials', 'true');

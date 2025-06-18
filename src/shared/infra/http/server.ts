@@ -37,6 +37,10 @@ app.get('/', (req: Request, res: Response) => {
 app.use(errors());
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   console.error('Erro capturado no middleware de erro:', err);
   ErrorHandleMiddleware.handleError(err, req, res, next);
 });
