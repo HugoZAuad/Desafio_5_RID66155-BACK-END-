@@ -22,10 +22,8 @@ export class BooksControllers {
 
   async list(request: Request, response: Response): Promise<Response> {
     try {
-      console.log('GET /books chamado')
       const listBooks = new ListBooks(bookRepository)
       const books = await listBooks.execute()
-      console.log(`Livros retornados:`, books)
       return response.json(books)
     } catch (error) {
       console.error('Erro ao listar livros:', error)
