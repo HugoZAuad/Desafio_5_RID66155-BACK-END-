@@ -1,6 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { errors } from 'celebrate';
-import cors from 'cors';
+import { CorsMiddleware } from '@shared/middlewares/CorsMiddleware';
 import dotenv from 'dotenv';
 import 'express-async-errors';
 import { AppDataSource } from '../../../config/database';
@@ -20,7 +20,7 @@ AppDataSource.initialize()
     console.error('Erro ao conectar com o banco de dados:', error);
   });
 
-app.use(cors());
+app.use(CorsMiddleware);
 app.use(express.json());
 
 app.use('/livros', BooksRoutes);
