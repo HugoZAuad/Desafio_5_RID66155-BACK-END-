@@ -1,6 +1,6 @@
 import { IDeleteBookService } from '../models/service/IDeleteBookService';
 import { IBookRepository } from '../models/repositories/IBookRepository';
-import AppError from '../../../shared/errors/AppErrors';
+import AppError from '@shared/errors/AppErrors';
 
 export class DeleteBook implements IDeleteBookService {
   private bookRepository: IBookRepository;

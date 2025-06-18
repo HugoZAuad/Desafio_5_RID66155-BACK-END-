@@ -1,7 +1,7 @@
 import { IListBooksService } from '../models/service/IListBooksService';
 import { IBookRepository } from '../models/repositories/IBookRepository';
 import { IBook } from '../models/interfaces/IBook';
-import AppError from '../../../shared/errors/AppErrors';
+import AppError from '@shared/errors/AppErrors';
 
 export class ListBooks implements IListBooksService {
   private bookRepository: IBookRepository;

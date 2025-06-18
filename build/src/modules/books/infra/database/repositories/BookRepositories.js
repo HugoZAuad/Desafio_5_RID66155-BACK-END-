@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BookRepositories = void 0;
-const Book_1 = require("../entities/Book");
+const Book_1 = require("@modules/books/infra/database/entities/Book");
 class BookRepositories {
     constructor(dataSource) {
         this.repository = dataSource.getRepository(Book_1.livros);

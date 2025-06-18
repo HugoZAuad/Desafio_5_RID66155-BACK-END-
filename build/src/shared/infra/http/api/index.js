@@ -5,12 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const celebrate_1 = require("celebrate");
-const CorsMiddleware_1 = require("../../../middlewares/CorsMiddleware");
+const CorsMiddleware_1 = require("@middlewares/middlewares/CorsMiddleware");
 const dotenv_1 = __importDefault(require("dotenv"));
 require("express-async-errors");
-const database_1 = require("../../../../config/database");
-const BooksRoutes_1 = __importDefault(require("../../../../modules/books/infra/http/routes/BooksRoutes"));
-const ErrorHandleMiddleware_1 = __importDefault(require("../../../middlewares/ErrorHandleMiddleware"));
+const database_1 = require("@config/database");
+const BooksRoutes_1 = __importDefault(require("@modules/books/infra/http/routes/BooksRoutes"));
+const ErrorHandleMiddleware_1 = __importDefault(require("@middlewares/middlewares/ErrorHandleMiddleware"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;

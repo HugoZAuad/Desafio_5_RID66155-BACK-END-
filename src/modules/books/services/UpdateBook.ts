@@ -1,6 +1,6 @@
 import { livros } from '../infra/database/entities/Book';
 import { BookRepositories } from '../infra/database/repositories/BookRepositories';
-import AppError from '../../../shared/errors/AppErrors';
+import AppError from '@shared/errors/AppErrors';
 
 export class UpdateBook {
   private bookRepository: BookRepositories;

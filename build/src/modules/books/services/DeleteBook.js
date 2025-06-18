@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteBook = void 0;
-const AppErrors_1 = __importDefault(require("../../../shared/errors/AppErrors"));
+const AppErrors_1 = __importDefault(require("@shared/errors/AppErrors"));
 class DeleteBook {
     constructor(bookRepository) {
         this.bookRepository = bookRepository;
