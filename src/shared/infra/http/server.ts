@@ -1,6 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { errors } from 'celebrate';
-import cors from 'cors';
+import { CorsMiddleware } from '@shared/middlewares/CorsMiddleware';
 import dotenv from 'dotenv';
 import 'express-async-errors';
 import { AppDataSource } from '../../../config/database';
@@ -30,19 +30,9 @@ const allowedOrigins = [
   'http://127.0.0.1:3000',
 ];
 
-app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  optionsSuccessStatus: 204,
-}));
+// Removido uso do cors padrão, usando middleware customizado
+app.use(CorsMiddleware);
+
 app.use(express.json());
 
 app.use('/livros', BooksRoutes);
