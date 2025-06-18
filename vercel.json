@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "builds": [{"src": "build", "use": "@vercel/node"}],
-  "routes": [{
-    "src": "/(.*)",
-    "dest": "build"
-  }]
+  "builds": [
+    {
+      "src": "build/src/shared/infra/http/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "build/src/shared/infra/http/server.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }

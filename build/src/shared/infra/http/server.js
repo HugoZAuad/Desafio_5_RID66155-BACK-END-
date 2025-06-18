@@ -23,7 +23,7 @@ database_1.AppDataSource.initialize()
 });
 app.use(CorsMiddleware_1.CorsMiddleware);
 app.use(express_1.default.json());
-app.use('/livros', BooksRoutes_1.default);
+app.use('/books', BooksRoutes_1.default);
 app.get('/', (req, res) => {
     res.send('API de Livros funcionando!');
 });
