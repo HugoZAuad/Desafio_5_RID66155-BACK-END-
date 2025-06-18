@@ -1,5 +1,5 @@
-import { UpdateBook } from '@modules/books/services/UpdateBook';
-import AppError from '@shared/errors/AppErrors';
+import { UpdateBook } from '../../modules/books/services/UpdateBook';
+import AppError from '../../shared/errors/AppErrors';
 
 describe('UpdateBook Service', () => {
   const mockBookRepository = {

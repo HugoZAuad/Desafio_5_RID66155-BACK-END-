@@ -1,4 +1,4 @@
-import { createBookSchema, updateBookSchema, idParamSchema } from '@modules/books/infra/http/schemas/BookSchema';
+import { createBookSchema, updateBookSchema, idParamSchema } from '../../modules/books/infra/http/schemas/BookSchema';
 
 describe('Book Joi Schemas', () => {
   it('valida corretamente um livro válido para criação', () => {

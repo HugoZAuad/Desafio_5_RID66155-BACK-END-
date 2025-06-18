@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BooksControllers = void 0;
 const BookRepositories_1 = require("../../../infra/database/repositories/BookRepositories");
-const CreateBook_1 = require("@modules/books/services/CreateBook");
-const DeleteBook_1 = require("@modules/books/services/DeleteBook");
-const ListBooks_1 = require("@modules/books/services/ListBooks");
-const UpdateBook_1 = require("@modules/books/services/UpdateBook");
-const database_1 = require("@config/database");
+const CreateBook_1 = require("../../../services/CreateBook");
+const DeleteBook_1 = require("../../../services/DeleteBook");
+const ListBooks_1 = require("../../../services/ListBooks");
+const UpdateBook_1 = require("../../../services/UpdateBook");
+const database_1 = require("../../../../../config/database");
 const bookRepository = new BookRepositories_1.BookRepositories(database_1.AppDataSource);
 class BooksControllers {
     async create(request, response) {

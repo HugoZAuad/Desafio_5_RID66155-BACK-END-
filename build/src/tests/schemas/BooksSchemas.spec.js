@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const BookSchema_1 = require("@modules/books/infra/http/schemas/BookSchema");
+const BookSchema_1 = require("../../modules/books/infra/http/schemas/BookSchema");
 describe('Book Joi Schemas', () => {
     it('valida corretamente um livro válido para criação', () => {
         const { error } = BookSchema_1.createBookSchema.validate({

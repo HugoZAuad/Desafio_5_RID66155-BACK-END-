@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
-const api_1 = __importDefault(require("@shared/infra/http/api"));
-const database_1 = require("@config/database");
+const api_1 = __importDefault(require("../../shared/infra/http/api"));
+const database_1 = require("../../config/database");
 let server;
 let api;
 describe('Books API Integration', () => {

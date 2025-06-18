@@ -1,5 +1,5 @@
-import ErrorHandleMiddleware from '@shared/middlewares/ErrorHandleMiddleware';
-import AppError from '@shared/errors/AppErrors';
+import ErrorHandleMiddleware from '../../shared/middlewares/ErrorHandleMiddleware';
+import AppError from '../../shared/errors/AppErrors';
 
 describe('ErrorHandleMiddleware', () => {
   const mockReq = {} as any;

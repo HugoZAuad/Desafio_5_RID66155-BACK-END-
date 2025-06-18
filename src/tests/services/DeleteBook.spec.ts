@@ -1,5 +1,5 @@
-import { DeleteBook } from '@modules/books/services/DeleteBook';
-import AppError from '@shared/errors/AppErrors';
+import { DeleteBook } from '../../modules/books/services/DeleteBook';
+import AppError from '../../shared/errors/AppErrors';
 
 describe('DeleteBook Service', () => {
   const mockBookRepository = {

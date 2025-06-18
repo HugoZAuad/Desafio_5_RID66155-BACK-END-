@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
 import { BookRepositories } from '../../../infra/database/repositories/BookRepositories'
-import { CreateBook } from '@modules/books/services/CreateBook'
-import { DeleteBook } from '@modules/books/services/DeleteBook'
-import { ListBooks } from '@modules/books/services/ListBooks'
-import { UpdateBook } from '@modules/books/services/UpdateBook'
-import { AppDataSource } from '@config/database'
+import { CreateBook } from '../../../services/CreateBook'
+import { DeleteBook } from '../../../services/DeleteBook'
+import { ListBooks } from '../../../services/ListBooks'
+import { UpdateBook } from '../../../services/UpdateBook'
+import { AppDataSource } from '../../../../../config/database'
 
 const bookRepository = new BookRepositories(AppDataSource)
 

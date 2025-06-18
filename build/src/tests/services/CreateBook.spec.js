@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const CreateBook_1 = require("@modules/books/services/CreateBook");
-const AppErrors_1 = __importDefault(require("@shared/errors/AppErrors"));
+const CreateBook_1 = require("../../modules/books/services/CreateBook");
+const AppErrors_1 = __importDefault(require("../../shared/errors/AppErrors"));
 describe('CreateBook Service', () => {
     const mockBookRepository = {
         create: jest.fn(),

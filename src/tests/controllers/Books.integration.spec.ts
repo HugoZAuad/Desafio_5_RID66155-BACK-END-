@@ -1,6 +1,6 @@
 import request from 'supertest';
-import app from '@shared/infra/http/api';
-import { AppDataSource } from '@config/database';
+import app from '../../shared/infra/http/api';
+import { AppDataSource } from '../../config/database';
 
 let server: any;
 let api: any;

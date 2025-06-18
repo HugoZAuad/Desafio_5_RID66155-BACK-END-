@@ -2,7 +2,7 @@ import { ICreateBookService } from '../models/service/ICreateBookService';
 import { ICreateBook } from '../models/interfaces/ICreateBook';
 import { IBook } from '../models/interfaces/IBook';
 import { IBookRepository } from '../models/repositories/IBookRepository';
-import AppError from '@shared/errors/AppErrors';
+import AppError from '../../../shared/errors/AppErrors';
 
 export class CreateBook implements ICreateBookService {
   private bookRepository: IBookRepository;

@@ -1,5 +1,5 @@
-import { ListBooks } from '@modules/books/services/ListBooks';
-import AppError from '@shared/errors/AppErrors';
+import { ListBooks } from '../../modules/books/services/ListBooks';
+import AppError from '../../shared/errors/AppErrors';
 
 describe('ListBooks Service', () => {
   const mockBookRepository = {
