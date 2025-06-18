@@ -13,7 +13,8 @@
     "lint-fix": "eslint . --ext .ts --fix",
     "migration:create": "node scripts/createMigration.js",
     "migration:run": "cross-env ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d ./src/config/database.ts",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "",
