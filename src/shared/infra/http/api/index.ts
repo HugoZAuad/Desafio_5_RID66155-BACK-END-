@@ -1,11 +1,11 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { errors } from 'celebrate';
-import { CorsMiddleware } from '@middlewares/middlewares/CorsMiddleware';
+import { CorsMiddleware } from '../../../middlewares/CorsMiddleware';
 import dotenv from 'dotenv';
 import 'express-async-errors';
 import { AppDataSource } from '@config/database';
 import BooksRoutes from '@modules/books/infra/http/routes/BooksRoutes';
-import ErrorHandleMiddleware from '@middlewares/middlewares/ErrorHandleMiddleware';
+import ErrorHandleMiddleware from '../../../middlewares/ErrorHandleMiddleware';
 
 dotenv.config();
 
